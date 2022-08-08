@@ -6,9 +6,10 @@ use yii\base\Controller;
 
 class PostController extends Controller {
 
-    public $layout = 'basic';
 
+    
     public function actionIndex() {
+        $this->layout = 'basic';
         return $this->render('index');
     }
 
