@@ -3,14 +3,21 @@
 namespace app\controllers;
 
 use yii\base\Controller;
-
+use Yii;
 class PostController extends Controller {
 
 
     
     public function actionIndex() {
-        $this->layout = 'basic';
-        return $this->render('index');
+        if( Yii::$app->request->isAjax) {
+            debug($_GET);
+            return 'test';
+        }
+        else{
+            $this->layout = 'basic';
+            return $this->render('index');
+    
+        }
     }
 
     public function actionShow() {
