@@ -1,4 +1,4 @@
-Контент
+Контент <?= $id ?>
 <button class="btn btn-success" id="btn">Click me</button>
 <?php 
     //$this->registerJsFile('@web/js/main.js', ['depends' => 'yii\web\YiiAsset'])
@@ -7,7 +7,8 @@
         $('#btn').on('click', function(e) {
             $.ajax({
             url: 'index.php?r=post/index',
-            data: {id: '<id>', 'other': '<other>'},
+            type: 'POST',
+            data: {id: '4'},
             success: function(data) {
                 console.log(data);
             },
