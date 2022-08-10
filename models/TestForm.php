@@ -23,13 +23,13 @@ class TestForm extends Model {
             // ['name', 'string', 'min' => 2, 'tooShort' => 'Мало'],
             // ['name', 'string', 'max' => 5, 'tooLong' => 'Много']
             [ 'name', 'string', 'length' => [2, 5] ],
-            // [ 'name', 'myRule'],
-            [ 'text', 'trim' ],
+            [ 'name', 'myRule'],
+            [ 'text', 'safe' ],
         ];
     }
 
     public function myRule($attr) {
-        if( !in_array($this->attrs, ['hello', 'world'])){
+        if( !in_array($this->$attr, ['hello', 'world'])){
             $this->addError($attr, 'Wrong!');
         }
     }
