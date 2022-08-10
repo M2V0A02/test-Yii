@@ -23,9 +23,7 @@
                     <li class="nav-itemrole="presentation"><?= Html::a('Статьи', ['post/index']); ?></li>
                     <li class="nav-itemrole="presentation"><?= Html::a('Статьи', ['post/show']); ?></li>
                 </ul>
-            <?php if( isset($this->blocks['block']))
-                echo $this->blocks['block']; 
-            ?>
+            <?= $content ?>
 </div>
         </div>
     <?php $this->endBody(); ?>

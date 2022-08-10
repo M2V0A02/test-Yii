@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\TestForm;
 use yii\base\Controller;
 use Yii;
 class PostController extends Controller {
@@ -20,16 +21,10 @@ class PostController extends Controller {
             var_dump(Yii::$app->request->post());
         }
         $this->layout = 'basic';
-        $this->view->title = "Index";
-        $this->view->registerMetaTag([
-            'name' => 'keywords',
-            'content' => 'ключевики'
-        ]);
-        $this->view->registerMetaTag([
-            'name' => 'description',
-            'content' =>  'Страница о ключевиках'
-        ]);
-        return $this->render('index');
+        
+        $model = new TestForm();
+
+        return $this->render('index', compact('model'));
     }
 
     public function actionShow() {
