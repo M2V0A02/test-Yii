@@ -23,7 +23,11 @@ class PostController extends Controller {
         $this->view->title = "Index";
         $this->view->registerMetaTag([
             'name' => 'keywords',
-            'content' =>  'ключевики'
+            'content' => 'ключевики'
+        ]);
+        $this->view->registerMetaTag([
+            'name' => 'description',
+            'content' =>  'Страница о ключевиках'
         ]);
         return $this->render('index');
     }

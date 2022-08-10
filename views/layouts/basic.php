@@ -22,9 +22,11 @@
                     <li class="nav-item active" role="presentation"><?= Html::a('Главная', '/basic/web/'); ?></li>
                     <li class="nav-itemrole="presentation"><?= Html::a('Статьи', ['post/index']); ?></li>
                     <li class="nav-itemrole="presentation"><?= Html::a('Статьи', ['post/show']); ?></li>
-                </ul>   
-            <?= $content ?>
-            </div>
+                </ul>
+            <?php if( isset($this->blocks['block']))
+                echo $this->blocks['block']; 
+            ?>
+</div>
         </div>
     <?php $this->endBody(); ?>
 </body>

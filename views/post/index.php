@@ -19,5 +19,9 @@
     JS;
     $this->registerJs($script)
 ?>
+
+<?php $this->beginBlock('block'); ?>
+    <h1>Это блок h1 </h1>
+<?php $this->endBlock();?>
 Контент
 <button class="btn btn-success" id="btn">Click me</button>
