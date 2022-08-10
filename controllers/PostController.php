@@ -20,6 +20,7 @@ class PostController extends Controller {
             var_dump(Yii::$app->request->post());
         }
         $this->layout = 'basic';
+        $this->view->title = "Index";
         return $this->render('index');
     }
 
