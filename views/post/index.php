@@ -1,6 +1,5 @@
-Контент <?= $id ?>
-<button class="btn btn-success" id="btn">Click me</button>
-<?php 
+<?php
+    $this->title = "About";
     //$this->registerJsFile('@web/js/main.js', ['depends' => 'yii\web\YiiAsset'])
     //$this->registerJs('alert(1);', \yii\web\View::POS_LOAD);
     $script = <<< JS
@@ -20,3 +19,5 @@
     JS;
     $this->registerJs($script)
 ?>
+Контент
+<button class="btn btn-success" id="btn">Click me</button>

@@ -20,7 +20,7 @@ class PostController extends Controller {
             var_dump(Yii::$app->request->post());
         }
         $this->layout = 'basic';
-        return $this->render('index', compact("id"));
+        return $this->render('index');
     }
 
     public function actionShow() {
