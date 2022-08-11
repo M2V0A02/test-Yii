@@ -2,11 +2,15 @@
 
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
+use app\components\MyWidget;
 // count($user->messages)
 // debug($messages)
 ?>
 
 <?php
+    MyWidget::begin();?>
+        <h1>привет, мир!</h1>
+    <?php MyWidget::end();
     // foreach ($users as $user) {
     //     echo '<ul>';
     //         echo '<li>' . $user->name . '</li>';
