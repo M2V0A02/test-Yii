@@ -33,8 +33,21 @@ class PostController extends Controller {
             }
         }
 
-        $messages = Messages::find()->all();
-
+        // $messages = Messages::find()->orderBy(['id' => SORT_DESC])->all();
+        // $messages = Messages::find()->asArray()->where('id > 50')->orderBy(['id' => SORT_DESC])->all();
+        // $messages = Messages::find()->asArray()->where(['user_id' => 2])->orderBy(['id' => SORT_DESC])->all();
+        // $messages = Messages::find()->asArray()->where(['like', 'message', 'f'])->orderBy(['id' => SORT_DESC])->all();
+        // $messages = Messages::find()->asArray()->where(['>=', 'id', 50])->orderBy(['id' => SORT_DESC])->all();
+        // $messages = Messages::find()->all();
+        // $messages = Messages::find()->asArray()->limit(2)->one();
+        // $messages = Messages::find()->count();
+        //$messages = Messages::findOne([50]);
+        //$messages = Messages::findOne(['id' => 50]);
+        // $messages = Messages::findAll(['id' => 50]);
+        // $query = "SELECT * FROM messages WHERE message LIKE '%f%'";
+        // $messages = Messages::findBySql($query)->all();
+        $query = "SELECT * FROM messages WHERE message LIKE :search";
+        $messages = Messages::findBySql($query, [':search' => '%f%'])->all();
         return $this->render('index', compact('model', 'messages'));
     }
 
