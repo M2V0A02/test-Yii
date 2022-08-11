@@ -2,35 +2,27 @@
 
 namespace app\models;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class TestForm extends Model {
-    public $name;
-    public $email;
-    public $text;
+class TestForm extends ActiveRecord {
+
+    public static function tableName(){
+        return 'messages';
+    }
 
     public function attributeLabels() {
         return [
-            'name' => 'Имя',
-            'email' => 'E-mail',
-            'text' => 'Текст сообщения'
+            'message' => 'Сообщение',
+            'user_id' => 'id-пользователя',
         ];
     }
 
     public function rules() {
         return [
-            [ ['name', 'email'], 'required'],
-            [ 'email', 'email' ],
-            // ['name', 'string', 'min' => 2, 'tooShort' => 'Мало'],
+            [ ['message', 'user_id'], 'required'],
+            ['message', 'string', 'min' => 2, 'tooShort' => 'Короткое сообещние'],
             // ['name', 'string', 'max' => 5, 'tooLong' => 'Много']
-            [ 'name', 'string', 'length' => [2, 5] ],
-            [ 'name', 'myRule'],
-            [ 'text', 'safe' ],
+            // [ 'name', 'string', 'length' => [2, 5] ],
         ];
-    }
-
-    public function myRule($attr) {
-        if( !in_array($this->$attr, ['hello', 'world'])){
-            $this->addError($attr, 'Wrong!');
-        }
     }
 }

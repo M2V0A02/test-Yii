@@ -7,17 +7,17 @@ use yii\bootstrap4\Html;
 ?>
 
 <?php
-foreach ($users as $user) {
-    echo '<ul>';
-        echo '<li>' . $user->name . '</li>';
-        $messages = $user->messages;
-        foreach($messages as $message) {
-            echo '<ul>';
-                echo '<li>' . $message->message . '</li>';
-            echo '</ul>';
-        }
-    echo '</ul>';
-}
+    // foreach ($users as $user) {
+    //     echo '<ul>';
+    //         echo '<li>' . $user->name . '</li>';
+    //         $messages = $user->messages;
+    //         foreach($messages as $message) {
+    //             echo '<ul>';
+    //                 echo '<li>' . $message->message . '</li>';
+    //             echo '</ul>';
+    //         }
+    //     echo '</ul>';
+    // }
 ?>
 <?php if (Yii::$app->session->hasFlash('success')): ?>
     <div class="alert alert-success" role="alert">
@@ -33,8 +33,7 @@ foreach ($users as $user) {
 
 <h1>Test Action</h1>
 <?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]) ?>
-<?= $form->field($model, 'name')->passwordInput()?>
-<?= $form->field($model, 'email')->input('email')?>
-<?= $form->field($model, 'text')->textarea() ?>
+<?= $form->field($model, 'message')?>
+<?= $form->field($model, 'user_id')?>
 <?= Html::submitButton('Отправить', ['class' => 'btn btn-success'])?>
 <?php ActiveForm::end() ?>

@@ -25,8 +25,11 @@ class PostController extends Controller {
         // }
         $this->layout = 'basic';
         $model = new TestForm();
+        // $model->message = "Сообщение";
+        // $model->user_id = "5"; // связывает input с значениями таблицы.
+        // $model-save();
         if ($model ->load(Yii::$app->request->post()) ){
-            if ($model->validate() ) {
+            if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 return Yii::$app->getResponse()->refresh();
             } else {
@@ -50,9 +53,9 @@ class PostController extends Controller {
         // $query = "SELECT * FROM messages WHERE message LIKE :search";
         // $messages = Messages::findBySql($query, [':search' => '%f%'])->all();
         // $messages = Messages::findOne(50);
-        $messages = Users::find()->with('messages')->where('id = 2')->all();
         //$users = Users::findOne(2);
         // $users = Users::find()->all();
+        $messages = Users::find()->with('messages')->where('id = 2')->all();
         $users = Users::find()->with('messages')->all();
         return $this->render('index', compact('model', 'users', 'messages'));
     }
