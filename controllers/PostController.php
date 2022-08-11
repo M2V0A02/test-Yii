@@ -28,6 +28,14 @@ class PostController extends Controller {
         // $model->message = "Сообщение";
         // $model->user_id = "5"; // связывает input с значениями таблицы.
         // $model-save();
+
+        // $updatesModel = Messages::findAll(['message' => 'Сообщение 30']);  //массовое обновление
+        // foreach($updatesModel as $updateModel){
+        //     $updateModel->message = "Сообщение 50";
+        //     $updateModel->save();
+        // }
+        //Messages::findOne(30)->delete(); // удаление
+        //Messages::deleteAll(['>', 'id', 3]) // массовое удаление.
         if ($model ->load(Yii::$app->request->post()) ){
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Данные приняты');
