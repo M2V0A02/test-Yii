@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\TestForm;
 use yii\base\Controller;
 use yii\web\Response;
+use app\models\Messages;
 use Yii;
 class PostController extends Controller {
 
@@ -31,7 +32,10 @@ class PostController extends Controller {
                 Yii::$app->session->setFlash('error', 'Данные не приняты');
             }
         }
-        return $this->render('index', compact('model'));
+
+        $messages = Messages::find()->all();
+
+        return $this->render('index', compact('model', 'messages'));
     }
 
     public function actionShow() {

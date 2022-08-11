@@ -3,7 +3,7 @@
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 ?>
-
+<?php debug($messages) ?>
 <?php if (Yii::$app->session->hasFlash('success')): ?>
     <div class="alert alert-success" role="alert">
         <?= Yii::$app->session->getFlash(('success')); ?>
