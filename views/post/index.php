@@ -2,8 +2,23 @@
 
 use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
+// count($user->messages)
+// debug($messages)
 ?>
-<?php debug($messages) ?>
+
+<?php
+foreach ($users as $user) {
+    echo '<ul>';
+        echo '<li>' . $user->name . '</li>';
+        $messages = $user->messages;
+        foreach($messages as $message) {
+            echo '<ul>';
+                echo '<li>' . $message->message . '</li>';
+            echo '</ul>';
+        }
+    echo '</ul>';
+}
+?>
 <?php if (Yii::$app->session->hasFlash('success')): ?>
     <div class="alert alert-success" role="alert">
         <?= Yii::$app->session->getFlash(('success')); ?>

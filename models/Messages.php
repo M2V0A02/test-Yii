@@ -5,7 +5,7 @@ namespace app\models;
 use yii\db\ActiveRecord;
 
 class Messages extends ActiveRecord{
-    public static function tableName() {
-        return 'messages';
+    public function getUser(){
+        return $this->hasOne(Users::className(), ['id' => 'user_id']);
     }
 }

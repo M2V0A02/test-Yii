@@ -6,6 +6,7 @@ use app\models\TestForm;
 use yii\base\Controller;
 use yii\web\Response;
 use app\models\Messages;
+use app\models\Users;
 use Yii;
 class PostController extends Controller {
 
@@ -46,9 +47,14 @@ class PostController extends Controller {
         // $messages = Messages::findAll(['id' => 50]);
         // $query = "SELECT * FROM messages WHERE message LIKE '%f%'";
         // $messages = Messages::findBySql($query)->all();
-        $query = "SELECT * FROM messages WHERE message LIKE :search";
-        $messages = Messages::findBySql($query, [':search' => '%f%'])->all();
-        return $this->render('index', compact('model', 'messages'));
+        // $query = "SELECT * FROM messages WHERE message LIKE :search";
+        // $messages = Messages::findBySql($query, [':search' => '%f%'])->all();
+        // $messages = Messages::findOne(50);
+        $messages = Users::find()->with('messages')->where('id = 2')->all();
+        //$users = Users::findOne(2);
+        // $users = Users::find()->all();
+        $users = Users::find()->with('messages')->all();
+        return $this->render('index', compact('model', 'users', 'messages'));
     }
 
     public function actionShow() {
