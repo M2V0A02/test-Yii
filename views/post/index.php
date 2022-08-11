@@ -8,9 +8,10 @@ use app\components\MyWidget;
 ?>
 
 <?php
-    MyWidget::begin();?>
+    MyWidget::begin(); ?>
         <h1>привет, мир!</h1>
     <?php MyWidget::end();
+
     // foreach ($users as $user) {
     //     echo '<ul>';
     //         echo '<li>' . $user->name . '</li>';
@@ -39,5 +40,7 @@ use app\components\MyWidget;
 <?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]) ?>
 <?= $form->field($model, 'message')?>
 <?= $form->field($model, 'user_id')?>
+<!-- composer require --prefer-dist yiisoft/yii2-jui -->
+<?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
 <?= Html::submitButton('Отправить', ['class' => 'btn btn-success'])?>
 <?php ActiveForm::end() ?>
